@@ -68,7 +68,6 @@ int main()
 {
     int n,m;
     cin>>m;
-    int len=m;
     int t=m;
     int f[m],i=0;
     

@@ -2,34 +2,58 @@
 //  441A.cpp
 //  CodeforcesProblems
 //
-//  Created by Abdullah Al Mahfuz on 15/3/22.
+//  Created by Abdullah Al Mahfuz on 17/3/22.
 //
-
 
 #include <iostream>
 #include <string>
-#include <algorithm>
-#include <cctype>
 #include <map>
-
+#include <sstream>
 
 using namespace std;
+
 int main()
 {
+    int n,v,count=0,i=0;
+    map<int , int> sellerNo;
     
-    int n,m,tmp,count=0;
-    cin>>n>>m;
-    
-    tmp=n*m;
-    while (tmp>0) {
-        count++;
-        tmp=tmp-(n+m-1);
-        n--;
-        m--;
+    cin>>n>>v;
+    int arr[n+1];
+
+    while(n--)
+    {
+        int t;
+        cin>>t;
+        string s;
+        getline(cin>>ws,s);
+        i++;
+        istringstream str(s);
+        int elem;
+        while (str>> elem) {
+            int k=elem;
+            sellerNo.insert(pair<int, int>(k,0));
+        }
+        if (sellerNo.begin()->first<v) {
+          
+            
+            arr[count]=i;
+
+            count++;
+            
+        }
+        
+        sellerNo.clear();
         
     }
-    if (count%2!=0) {
-        cout<<"Akshat";
-    }else cout<<"Malvika";
+    
+    cout<<count<<endl;
+    for(int j=0; j<count; j++)
+    {
+        cout<<arr[j];
+        if (j<count-1) {
+            cout<<" ";
+        }
+    }
+    
     return 0;
 }
